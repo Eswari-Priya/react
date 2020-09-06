@@ -23,17 +23,15 @@ import { Card, CardImg, CardTitle, CardText, CardBody } from "reactstrap";
       const coms = dish.comments.map((com) => {
         let dateFormat = { year: "numeric", month: "short", day: "numeric" };
         return (
-          <div>
-            <ul className="list-unstyled" key={com.id}>
-              <li>
+         
+              <li key = {com.id}>
                 <p>{com.comment}</p>
                 <p>
                   -- {com.author} ,{" "}
                   {new Date(com.date).toLocaleDateString("en-us", dateFormat)}
                 </p>
               </li>
-            </ul>
-          </div>
+          
         );
       });
       return (
@@ -53,7 +51,8 @@ import { Card, CardImg, CardTitle, CardText, CardBody } from "reactstrap";
       <div className="row">
         <div className="col-12 col-md-5 mt-5 m-1">{RenderDish(props.dish)}</div>
         <div className="col-12 col-md-5 mt-5 m-1">
-          {RenderComments(props.dish)}
+           <ul className="list-unstyled">{RenderComments(props.dish)}</ul>
+          
         </div>
       </div>
       </div>
