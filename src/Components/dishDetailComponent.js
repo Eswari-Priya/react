@@ -1,6 +1,7 @@
-import React from "react";
-import { Card, CardImg, CardTitle, CardText, CardBody,Breadcrumb,BreadcrumbItem } from "reactstrap";
+import React,{Component} from "react";
+import { Card, CardImg, CardTitle, CardText, CardBody,Breadcrumb,BreadcrumbItem} from "reactstrap";
 import {Link} from 'react-router-dom';
+import CommentForm from './CommentForm';
 
   function RenderDish(dish) {
     if (dish != null) {
@@ -29,13 +30,14 @@ import {Link} from 'react-router-dom';
                   -- {com.author} ,{" "}
                   {new Date(com.date).toLocaleDateString("en-us", dateFormat)}
                 </p>
-              </li>
+              </li> 
         );
       });
       return (
         <div>
           <h4>Comments</h4>
           {coms}
+          <CommentForm />
         </div>
       );
     } else {

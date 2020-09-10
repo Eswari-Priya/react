@@ -12,6 +12,7 @@ import{ COMMENTS } from '../shared/comments';
 import{ PROMOTIONS } from '../shared/promotions';*/
 import {Route,Switch,Redirect,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { Button } from 'reactstrap';
 
 const mapStateToProps = state => {
     return{
@@ -37,8 +38,11 @@ class Main extends Component {
   render() {
     const DishWithId = ({match}) => {
       return(
-        <DishDetail dish={this.props.dishes.filter((dish)=>dish.id === parseInt(match.params.dishId,10))[0]} 
-        comments = {this.props.comments}/>
+        <React.Fragment>
+            <DishDetail dish={this.props.dishes.filter((dish)=>dish.id === parseInt(match.params.dishId,10))[0]} 
+               comments = {this.props.comments.filter((comment)=>comment.id === parseInt(match.params.dishId,10))}/>
+            
+       </React.Fragment>
       );
     };
     const HomePage = ()=> {
